@@ -1,11 +1,13 @@
 package org.studyeasy.request.model;
 
 public class AddressRequestModel {
+	
 	private String city;
 	private String country;
 	private String streetName;
 	private String postalCode;
 	private String type;
+	
 	public String getCity() {
 		return city;
 	}
@@ -37,7 +39,4 @@ public class AddressRequestModel {
 		this.type = type;
 	}
 	
-	
-	
-
 }

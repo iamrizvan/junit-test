@@ -1,63 +1,110 @@
-package org.studyeasy.shared.dto;
+package org.studyeasy.entity;
 
-public class AddressDTO {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name = "addresses")
+public class AddressEntity implements Serializable {
+
+	private static final long serialVersionUID = -6532727686774129641L;
+
+	@Id
+	@GeneratedValue
 	private int id;
+
+	@Column(length = 30, nullable = false)
 	private String addressId;
+
+	@Column(length = 30, nullable = false)
 	private String city;
+
+	@Column(length = 30, nullable = false)
 	private String country;
+
+	@Column(length = 150, nullable = false)
 	private String streetName;
+
+	@Column(length = 7, nullable = false)
 	private String postalCode;
+
+	@Column(length = 30, nullable = false)
 	private String type;
-	private UserDTO userDetails;
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "users_id")
+	private UserEntity userDetails;
+
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getAddressId() {
 		return addressId;
 	}
+
 	public void setAddressId(String addressId) {
 		this.addressId = addressId;
 	}
+
 	public String getCity() {
 		return city;
 	}
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 	public String getCountry() {
 		return country;
 	}
+
 	public void setCountry(String country) {
 		this.country = country;
 	}
+
 	public String getStreetName() {
 		return streetName;
 	}
+
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
 	}
+
 	public String getPostalCode() {
 		return postalCode;
 	}
+
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	public UserDTO getUserDetails() {
+
+	public UserEntity getUserDetails() {
 		return userDetails;
 	}
-	public void setUserDetails(UserDTO userDetails) {
+
+	public void setUserDetails(UserEntity userDetails) {
 		this.userDetails = userDetails;
 	}
+
 }
